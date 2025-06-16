@@ -136,7 +136,11 @@ if __name__ == '__main__':
     parser.add_argument('--discsdtw', default=False, action="store_true", help="Discrimitive shapeDTW warp preset augmentation")
     parser.add_argument('--extra_tag', type=str, default="", help="Anything extra")
     
+<<<<<<< HEAD
     # SoP
+=======
+    # tun_model
+>>>>>>> d162c8d4752e7083fd44d7c660f8f25bc5ce67f4
     parser.add_argument('--tun_model', type=int, default=0, help='use step_tun_model')
     parser.add_argument('--channel_fintune', type=int, default=0, help='use channel_model')
     parser.add_argument('--plug_num', type=int, default=1, help='plug numbers')

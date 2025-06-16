@@ -9,7 +9,11 @@ import os
 import time
 import warnings
 import numpy as np
+<<<<<<< HEAD
 from models.tuning import SimpleFCNet_exchange
+=======
+from models.tuning import SimpleFCNet_channel,SimpleFCNet2,SimpleFCNet_traffic,SimpleFCNet_ett,SimpleFCNet_exchange
+>>>>>>> d162c8d4752e7083fd44d7c660f8f25bc5ce67f4
 from utils.dtw_metric import dtw,accelerated_dtw
 from utils.augmentation import run_augmentation,run_augmentation_single
 import time
@@ -31,7 +35,11 @@ class Exp_Long_Term_Forecast(Exp_Basic):
                 tun_models.append(SimpleFCNet_exchange(self.args, sequence_length=self.args.pred_len))        
         else:   
             for i in range(self.args.pred_len // self.args.cseg_len):
+<<<<<<< HEAD
                 tun_models.append(SimpleFCNet_exchange(self.args, sequence_length=self.args.cseg_len, in_features=in_features))        
+=======
+                tun_models.append(SimpleFCNet2(self.args, sequence_length=self.args.cseg_len, in_features=in_features))        
+>>>>>>> d162c8d4752e7083fd44d7c660f8f25bc5ce67f4
         
         if self.args.use_multi_gpu and self.args.use_gpu:
             model = nn.DataParallel(model, device_ids=self.args.device_ids)
