@@ -50,13 +50,13 @@ cfintune=0 # Close variable-wise SoP
 ```
 tunmodel=1 # Open SoP as step wise SoP by default
 cfintune=0 # Close variable-wise SoP
-
 ```
+
 ```
 tunmodel=1 # Open SoP
 cfintune=1 # Open variable-wise SoP
-
 ```
+
 If you want to train multiple objectives (variables or time steps) in combination:
 
 ```
@@ -64,7 +64,8 @@ tunmodel=1 # Open SoP
 cfintune=1 # Open variable-wise SoP
 cseg_len=3 # Three variables are optimized together as a group, We refer to each such group of variables as an optimized Plug. 
 ```
-Specifically, for a prediction target \(Y \in \mathbb{R}^{N \times S}\): If \(n\) variables along the \(N\)-dimension form an optimized plug to predict \(Y_{\text{plug}} \in \mathbb{R}^{n \times S}\), SoP creates the plug counts as \(M = \frac{N}{n}\).
+
+Specifically, for a prediction target $\(Y \in \mathbb{R}^{N \times S}\)$: If $\(n\)$ variables along the$ \(N\)$-dimension form an optimized plug to predict $\(Y_{\text{plug}} \in \mathbb{R}^{n \times S}\)$ , SoP creates the plug counts as $\(M = \frac{N}{n}\)$.
 
 ------------
 
