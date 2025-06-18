@@ -7,7 +7,7 @@ Deep learning-based approaches have demonstrated significant advancements in tim
 </p>
 
 <p align="center">
-<img src=".\pic\sk.png" height = "400" alt="" align=center />
+<img src=".\pic\sk.pdf" height = "400" alt="" align=center />
 </p>
 
 **Usage:**
