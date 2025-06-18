@@ -65,7 +65,7 @@ cfintune=1 # Open variable-wise SoP
 cseg_len=3 # Three variables are optimized together as a group, We refer to each such group of variables as an optimized Plug. 
 ```
 
-Specifically, for a prediction target $Y \in \mathbb{R}^{N \times S}$: If $n$ variables along the$N$ dimension form an optimized plug to predict $Y_{\text{plug}}$ $\in \mathbb{R}^{n \times S}$ , SoP creates the plug counts as $M = \frac{N}{n}$.
+Specifically, for a prediction target $Y \in \mathbb{R}^{N \times S}$: If $n$ variables along the $N$ dimension form an optimized plug to predict $Y_{\text{plug}}$ $\in \mathbb{R}^{n \times S}$ , SoP creates the plug counts as $M = \frac{N}{n}$.
 
 ------------
 
