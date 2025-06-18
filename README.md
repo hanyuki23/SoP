@@ -41,20 +41,20 @@ The specific operation steps are as follows：
 - Training Socket model and set the following parameters in the iTransformer. sh file:
 
 ```
-tunmodel=0 # Close step-wise SoP
-cfintune=0 # Close variable-wise SoP
+tunmodel=0 # Not using SoP for calibration
+cfintune=0
 
 ```
 - Start training Plug:
 
 ```
-tunmodel=1 # Open SoP as step wise SoP by default
-cfintune=0 # Close variable-wise SoP
+tunmodel=1 # Using SoP for calibration
+cfintune=0 # Using step-wise SoP
 ```
 
 ```
-tunmodel=1 # Open SoP
-cfintune=1 # Open variable-wise SoP
+tunmodel=1 # Using SoP for calibration
+cfintune=1 # Using variable-wise SoP
 ```
 
 If you want to train multiple objectives (variables or time steps) in combination:
@@ -82,7 +82,6 @@ If you find this repo useful, please cite our paper.
 
 
 ```
-
 @article{wang2025non,
   title={Non-collective Calibrating Strategy for Time Series Forecasting},
   author={Wang, Bin and Han, Yongqi and Ma, Minbo and Li, Tianrui and Zhang, Junbo and Hong, Feng and Yu, Yanwei},
