@@ -1,4 +1,4 @@
-# Non-collective Calibrating Strategy for Time Series Forecasting 
+# Non-collective Calibrating Strategy for Time Series Forecasting -[Paper Accepted by IJCAI 2025]
 
 Deep learning-based approaches have demonstrated significant advancements in time series forecasting. Despite these ongoing developments, the complex dynamics of time series make it challenging to establish the rule of thumb for designing the golden model architecture. In this study, we argue that refining existing advanced models through a universal calibrating strategy can deliver substantial benefits with minimal resource costs, as opposed to elaborating and training a new model from scratch. We first identify a multi-target learning conflict in the calibrating process, which arises when optimizing variables across time steps, leading to the underutilization of the model’s learning capabilities. To address this issue, we propose an innovative calibrating strategy called Socket+Plug (SoP). This approach retains an exclusive optimizer and early-stopping monitor for each predicted target within each Plug while keeping the fully trained Socket backbone frozen. The model-agnostic nature of SoP allows it to directly calibrate the performance of any trained deep forecasting models, regardless of their specific architectures. Extensive experiments on various time series benchmarks and a spatio-temporal meteorological ERA5 dataset demonstrate the effectiveness of SoP, achieving up to a 22% improvement even when employing a simple MLP as the Plug.
 
@@ -6,9 +6,14 @@ Deep learning-based approaches have demonstrated significant advancements in tim
 <img src=".\pic\models.png" height = "400" alt="" align=center />
 </p>
 
+<p align="center">
+<img src=".\pic\sk.png" height = "400" alt="" align=center />
+</p>
+
 **Usage:**
 
 Install Python 3.8. For convenience, execute the following command.
+
 
 ```
 pip install -r requirements.txt
@@ -19,32 +24,55 @@ pip install -r requirements.txt
 
 You can obtain the well pre-processed datasets from [https://github.com/thuml/Time-Series-Library]()
 
+------------
+
+
+
 **Train and evaluate model**
 
-We provide the experiment scripts for all benchmarks under the folder `./scripts/`. You can reproduce the experiment results as the following examples:
+We provide the experiment scripts for Exchange dataset under the folder `./scrip/`. You can reproduce the experiment results as the following examples:
 
 ```
-bash ./scripts/long_term_forecast/ETT_script/TimesNet_ETTh1.sh
+bash ./scrip/long_term_forecast/Exchange_script/iTransformer.sh
 
 ```
-The main arguments in config.json are described below:
+The specific operation steps are as follows：
+- Training Socket model and set the following parameters in the iTransformer. sh file:
 
-tun_model:use step-wise SoP
+```
+tunmodel=0 # Close step-wise SoP
+cfintune=0 # Close variable-wise SoP
 
-channel_fintune: use variable-wise SoP
+```
+- Start training Plug:
 
-cseg_len: when you want to calibrate three variables or three time steps together, set the cseg_1en parameter to 3
+```
+tunmodel=1 # Open SoP as step wise SoP by default
+cfintune=0 # Close variable-wise SoP
 
-eg. If you want to run Exchange_96_96 and use a variable-wise SoP, the parameter settings are: tun_madel=1, channel_fintune=1, cseg_len=1, means that the predicted results of each variable will have a corresponding plug for calitration. 
+```
+```
+tunmodel=1 # Open SoP
+cfintune=1 # Open variable-wise SoP
 
-If you want to run Exchange_96_96 and use a step-wise SoP, the parameter settings are: tun_madel=1, channel_fintune=0, cseg_len=1, means that the predicted results of each step will have a corresponding plug for calitration. 
+```
+If you want to train multiple objectives (variables or time steps) in combination:
+
+```
+tunmodel=1 # Open SoP
+cfintune=1 # Open variable-wise SoP
+cseg_len=3 # Three variables are optimized together as a group, We refer to each such group of variables as an optimized Plug. 
+```
+Specifically, for a prediction target \(Y \in \mathbb{R}^{N \times S}\): If \(n\) variables along the \(N\)-dimension form an optimized plug to predict \(Y_{\text{plug}} \in \mathbb{R}^{n \times S}\), SoP creates the plug counts as \(M = \frac{N}{n}\).
+
+------------
 
 
 **Develop your own model.**
 
 Add the model file to the folder ./models. You can follow the ./models/Transformer.py.
 Include the newly added model in the Exp_Basic.model_dict of ./exp/exp_basic.py.
-Create the corresponding scripts under the folder ./scripts.
+Create the corresponding scripts under the folder ./scrip.
 
 **Citation**
 
@@ -61,11 +89,6 @@ If you find this repo useful, please cite our paper.
 }
 
 ```
-
-
-**Acknowledgement**
-
-This project is supported by the National Natural Science Foundation of China (Nos. 62402463, 41976185, 62176243, 62176221 and 72242106.
 
 **Contact**
 
