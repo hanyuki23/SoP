@@ -6,7 +6,8 @@ Deep learning-based approaches have demonstrated significant advancements in tim
 <img src=".\pic\models.png" height = "400" alt="" align=center />
 </p>
 
-<embed src="path/to/your_pdf.pdf" type=".\pic\sk.pdf" width="100%" height="400px" />
+<embed src=".\pic\sk.pdf" type="application/pdf" width="100%" height="400px" />
+
 
 **Usage:**
 
