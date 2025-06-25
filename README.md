@@ -5,7 +5,7 @@
 SoP is a universal calibration strategy that resolves multi-target learning conflicts by optimizing each prediction target independently while keeping the backbone frozen. Achieves **up to 22%** improvement even with simple MLP Plugs.
 
 <p align="center">
-<img src=".\pic\models.png" height = "300" alt="" align=center />
+<img src=".\pic\models.png" height = "400" alt="" align=center />
 </p>
 
 <p align="center">
