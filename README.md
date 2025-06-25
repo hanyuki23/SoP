@@ -1,6 +1,6 @@
 # Non-collective Calibrating Strategy for Time Series Forecasting -[Paper Accepted by IJCAI 2025]
 
-###### 🚀 Enhance pretrained time series models without full retraining!
+#### 🚀 Enhance pretrained time series models without full retraining!
 
 SoP is a universal calibration strategy that resolves multi-target learning conflicts by optimizing each prediction target independently while keeping the backbone frozen. Achieves **up to 22%** improvement even with simple MLP Plugs.
 
@@ -33,7 +33,7 @@ You can obtain the well pre-processed datasets from [https://github.com/thuml/Ti
 
 ------------
 
-##### 🚀 Quick Start  
+#### 🚀 Quick Start  
 
 **Train and evaluate model**
 
@@ -71,7 +71,7 @@ cfintune=1 # Using variable-wise SoP
 cseg_len=3 # Three variables are optimized together as a group, We refer to each such group of variables as an optimized Plug
 ```
 
-##### Training Modes
+#### Training Modes
 
 | Mode | `tunmodel` | `cfintune` | Description |
 |------|------------|------------|-------------|
