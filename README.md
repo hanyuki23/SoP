@@ -100,7 +100,7 @@ Create the corresponding scripts under the folder ./scrip.
 📜 **Citation**
 
 If you find this repo useful, please cite our paper.
-
+https://arxiv.org/abs/2506.03176
 
 ```
 @article{wang2025non,
